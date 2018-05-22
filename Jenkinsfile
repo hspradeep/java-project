@@ -43,7 +43,7 @@ pipeline {
     }
     stage("Test on Debian") {
       agent {
-        docker 'openjdk:8-jre-slim'
+        label 'apache'
       }
       steps {
         sh "wget http://54.203.184.115/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
