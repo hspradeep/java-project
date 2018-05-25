@@ -2,3 +2,6 @@ bin/*
 dist/*
 reports/*
 docs/*
+Jenkinsfile
+build.xml
+test.xml
