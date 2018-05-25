@@ -37,7 +37,7 @@ pipeline {
         label 'apache'
       }
       steps {
-        sh "wget http://hspradeep3.mylabserver.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://54.191.143.196/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
       }
     }
@@ -46,7 +46,7 @@ pipeline {
         docker 'openjdk:8u171-jre-slim'
       }
       steps {
-        sh "wget http://hspradeep3.mylabserver.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://54.191.143.196/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
       }
     }
