@@ -4,4 +4,3 @@ reports/*
 docs/*
 build.xml
 test.xml
-Jenkinsfile
