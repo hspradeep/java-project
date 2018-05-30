@@ -38,7 +38,7 @@ pipeline {
         label 'apache'
       }
       steps {
-        sh "wget http://18.237.45.229/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://18.237.46.205/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
       }
     }
@@ -47,7 +47,7 @@ pipeline {
         label 'apache'
       }
       steps {
-        sh "wget http://18.237.45.229/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://18.237.46.205/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
       }
     }
