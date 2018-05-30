@@ -1,10 +1,6 @@
 pipeline {
   agent none
 
-  environment {
-    MAJOR_VERSION = 1
-  }
-
   stages {
     stage('Unit Tests') {
       agent {
@@ -37,7 +33,7 @@ pipeline {
         sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/${env.BRANCH_NAME}/"
       }
     }
-    stage("Running on CentOSOS") {
+    stage("Running on CentOS") {
       agent {
         label 'apache'
       }
