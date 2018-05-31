@@ -1,6 +1,10 @@
 pipeline {
   agent none
 
+  environment {
+    MAJOR_VERSION = 1
+  }
+
   stages {
     stage('Unit Tests') {
       agent {
@@ -38,7 +42,7 @@ pipeline {
         label 'apache'
       }
       steps {
-        sh "wget http://18.237.46.205/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://34.215.127.223/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
       }
     }
@@ -47,7 +51,7 @@ pipeline {
         label 'apache'
       }
       steps {
-        sh "wget http://18.237.46.205/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://34.215.127.223/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
       }
     }
@@ -78,12 +82,12 @@ pipeline {
         sh 'git pull origin'
         sh 'git checkout master'
         echo "Merging Development into Master Branch"
-        sh 'git merge development'
+        echo 'sh git merge development'
         echo "Pushing to origin Master"
-        sh 'git push origin master'
+        echo 'sh git push origin master'
         echo "Tagging the release"
-        sh "git tag rectangle-${env.BUILD_NUMBER}"
-        sh "git push origin rectangle-${env.BUILD_NUMBER}"
+        sh "git tag rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
+        sh "git push origin rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
       }
     }
   }
